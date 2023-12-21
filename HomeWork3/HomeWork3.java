@@ -4,7 +4,10 @@ import java.util.TreeSet;
 
 public class HomeWork3 {
     public static void main(String[] args) {
-        TreeSet<Employee> employees=new TreeSet<Employee>();
+
+
+        //Сортировка по убыванию возрастов (от большего к меньшему)
+        TreeSet<Employee> employees=new TreeSet<>();
         employees.add(new Employee("Иванов Иван Иванович", 47, 50000));
         employees.add(new Employee("Александров Александр Александрович", 37, 47000));
         employees.add(new Employee("Игнатов Игнат Игнатьевич", 37, 47000));
@@ -16,9 +19,35 @@ public class HomeWork3 {
         employees.add(new Employee("Анащук Анна Витальевна", 25, 50000));
         employees.add(new Employee("Яковлев Яков Яковлевич", 39, 63000));
 
-        System.out.println(employees);
+        printInfo(employees);
+
+        System.out.println();
+
+        //Сортировка по возрастанию зарплаты
+        EmployeeBySalaryComparator comparatorBySalary=new EmployeeBySalaryComparator();
+        TreeSet<Employee> employees1=new TreeSet<>(comparatorBySalary);
+        employees1.addAll(employees);
+        printInfo(employees1);
+
+        System.out.println();
+        //Топ-5 сотрудников с наибольшей зарплатой, отсортированных по имени в алфавитном порядке.
+//        EmployeeBySalaryTop5Comparator comparatorBySalaryTop5=new EmployeeBySalaryTop5Comparator();
+//        TreeSet<Employee> employees3=new TreeSet<>(comparatorBySalaryTop5);
+//        employees3.addAll(employees);
+//        printInfo(employees3);
+//       //o1.getName().compareTo(o2.getName())
 
 
 
+
+
+
+    }
+
+    private static void printInfo(TreeSet<Employee> empl)
+    {
+        for (Employee employee: empl) {
+            System.out.println(employee);
+        }
     }
 }

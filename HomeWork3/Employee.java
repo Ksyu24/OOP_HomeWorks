@@ -19,17 +19,26 @@ public class Employee implements Comparable<Employee>{
         return salary;
     }
 
+    public String getName() {
+        return name;
+    }
+
     @Override
     public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                ", age=" + age +
-                ", salary=" + salary +
-                '}';
+        return "[" + name +
+                ", " + age +
+                ", " + salary +
+                "]";
     }
 
     @Override
     public int compareTo(Employee o) {
-        return 0;
+        if(age>o.getAge()){
+            return -1;
+        }
+        else if(age<o.getAge()){
+            return 1;
+        }
+        return 1;
     }
 }
