@@ -24,22 +24,26 @@ public class HomeWork3 {
         System.out.println();
 
         //Сортировка по возрастанию зарплаты
-        EmployeeBySalaryComparator comparatorBySalary=new EmployeeBySalaryComparator();
-        TreeSet<Employee> employees1=new TreeSet<>(comparatorBySalary);
-        employees1.addAll(employees);
-        printInfo(employees1);
+        EmployeeByAscendingSalaryComparator employeeByAscendingSalaryComparator=new EmployeeByAscendingSalaryComparator();
+        TreeSet<Employee> employeesSortByIncreasingSalary=new TreeSet<>(employeeByAscendingSalaryComparator);
+        employeesSortByIncreasingSalary.addAll(employees);
+        printInfo(employeesSortByIncreasingSalary);
 
         System.out.println();
         //Топ-5 сотрудников с наибольшей зарплатой, отсортированных по имени в алфавитном порядке.
-//        EmployeeBySalaryTop5Comparator comparatorBySalaryTop5=new EmployeeBySalaryTop5Comparator();
-//        TreeSet<Employee> employees3=new TreeSet<>(comparatorBySalaryTop5);
-//        employees3.addAll(employees);
-//        printInfo(employees3);
-//       //o1.getName().compareTo(o2.getName())
+        EmployeeBySalaryDescendingComparator employeeBySalaryDescendingComparator=new EmployeeBySalaryDescendingComparator();
+        TreeSet<Employee> employeesSortByDescendingSalary=new TreeSet<>(employeeBySalaryDescendingComparator);
+        employeesSortByDescendingSalary.addAll(employees);
 
-
-
-
+        EmployeeByNameComparator employeeByNameComparator=new EmployeeByNameComparator();
+        TreeSet<Employee> employeesSortByName=new TreeSet<>(employeeByNameComparator);
+        int count=0;
+        for (Employee employee:
+             employeesSortByDescendingSalary) {
+            if (count!=5) {employeesSortByName.add(employee); count++;}
+            else break;
+        }
+        printInfo(employeesSortByName);
 
 
     }

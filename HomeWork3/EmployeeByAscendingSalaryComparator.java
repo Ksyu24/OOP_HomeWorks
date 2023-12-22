@@ -2,7 +2,7 @@ package HomeWork3;
 
 import java.util.Comparator;
 
-public class EmployeeBySalaryComparator implements Comparator<Employee> {
+public class EmployeeByAscendingSalaryComparator implements Comparator<Employee> {
 
 
     @Override
