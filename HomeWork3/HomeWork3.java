@@ -9,8 +9,8 @@ public class HomeWork3 {
         //Сортировка по убыванию возрастов (от большего к меньшему)
         TreeSet<Employee> employees=new TreeSet<>();
         employees.add(new Employee("Иванов Иван Иванович", 47, 50000));
-        employees.add(new Employee("Александров Александр Александрович", 37, 47000));
         employees.add(new Employee("Игнатов Игнат Игнатьевич", 37, 47000));
+        employees.add(new Employee("Александров Александр Александрович", 37, 47000));
         employees.add(new Employee("Захаров Захар Захарович", 37, 30000));
         employees.add(new Employee("Шапкина Анна Евгеньевна", 27, 150000));
         employees.add(new Employee("Белоус Татьяна Семеновна", 50, 90000));
@@ -44,8 +44,15 @@ public class HomeWork3 {
             else break;
         }
         printInfo(employeesSortByName);
+        System.out.println();
 
-
+        //Отсортировать сотрудников по возрастанию возрастов
+        //Если возрасты одинаковые - то по убыванию зарплаты
+        //Если и они равны - в алвавитном порядке
+        EmployeeByAgeSalaryNameComparator employeeByAgeSalaryNameComparator=new EmployeeByAgeSalaryNameComparator();
+        TreeSet<Employee> employeeSortByAgeSalaryName=new TreeSet<>(employeeByAgeSalaryNameComparator);
+        employeeSortByAgeSalaryName.addAll(employees);
+        printInfo(employeeSortByAgeSalaryName);
     }
 
     private static void printInfo(TreeSet<Employee> empl)
